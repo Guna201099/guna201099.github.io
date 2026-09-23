@@ -1,142 +1,40 @@
-# Portfolio site
-
-Three pages, no build step, no dependencies. Open `index.html` to view it locally.
-
-```
-index.html      home: who you are, what you want, the dashboard video, four figures, three projects
-work.html       nine projects in three groups, with video
-about.html      experience, education, publications, tools
-assets/
-  css/site.css  one stylesheet, light and dark themes
-  js/site.js    analytics, theme, scroll animation, video behaviour
-  img-profile.jpg
-  Guna_Thiagarajan_CV.pdf
-  poster/       poster frames and stills
-  video/web/    ten web-encoded videos, about 42 MB total
-```
-
-## It is live
+# Guna Thiagarajan
 
 **https://guna201099.github.io**
 
-Deployed 23 September 2026. Every CV links there and the link is clickable in
-the PDF.
+I work where sensors meet machine learning. This is the source of my portfolio.
+The site is worth more than the code in it, so if you have landed here from my
+CV, the link above is the thing to click.
 
-| What | Where |
-|---|---|
-| Site repo | https://github.com/Guna201099/guna201099.github.io |
-| Profile repo | https://github.com/Guna201099/Guna201099 |
-| Pages source | branch `main`, folder `/ (root)`, HTTPS enforced |
-| Analytics | https://gunathiagarajan.goatcounter.com |
+## What is on the site that is not on my CV
 
-### One thing left, and it needs a browser
+A CV has one page. These need more room.
 
-GitHub removed repo pinning from their API, so it cannot be scripted. On
-https://github.com/Guna201099, click **Customize your pins** and tick
-`guna201099.github.io`. Ten seconds, and it puts the site in the big box on your
-profile instead of leaving it in the repository list.
+**Video of the work.** Eight of the nine projects are on video, filmed on the
+bench rather than mocked up. That includes a five minute walkthrough of the live
+dashboard I built for a CO&#8322; electrolysis rig at Fraunhofer UMSICHT, which is my
+master's thesis and the thing I would most like to talk about.
 
-### Updating the site later
+**The reasoning, not just the result.** Each project says what the actual problem
+was before it says what I did. Why a sensor reading goes wrong when a pump starts.
+Why a timestamp stops being trustworthy after a power cut. Why fixing warranty
+cases one at a time was never going to clear a backlog of 123.
 
-This folder is the git repository. Edit the files here, then:
+**Proof.** The HARMAN recognition certificate is on the page next to the claim it
+supports. Two of the devices were sold to customers and one is still running.
 
-```bash
-cd /f/JobHunt/portfolio
-git add -A
-git commit -m "what changed"
-git push
-```
+## Contact
 
-Live again in about a minute. If the CV changes, copy the new PDF over
-`assets/Guna_Thiagarajan_CV.pdf` first, since the site serves its own copy.
+Open to test, data or research engineering from 1 November 2026, in industry or
+at an institute. Based in Dortmund, happy to relocate.
 
-### Later, for about 5 euros a year
+[tguna1020@gmail.com](mailto:tguna1020@gmail.com) &middot;
+[linkedin.com/in/guna20](https://linkedin.com/in/guna20) &middot;
+[CV as PDF](https://guna201099.github.io/assets/Guna_Thiagarajan_CV.pdf)
 
-Buy `gunathiagarajan.de` at any registrar, add a file called `CNAME` to the
-repository root containing just that domain, and point the domain's DNS at
-GitHub. The site keeps working at both addresses. Tell me when you have it and
-I will change all the CVs in one pass.
+## About the site itself
 
-
-## Visitor analytics
-
-Already set up. `assets/js/site.js` line 12 holds your GoatCounter code:
-
-```js
-var GOATCOUNTER_CODE = 'gunathiagarajan';
-```
-
-Your statistics are at **https://gunathiagarajan.goatcounter.com**.
-
-### What you will see
-
-- How many people visited, and how many were new
-- Which pages they opened, so you learn whether anyone reaches Work
-- **Where they came from**: an application portal, LinkedIn, a direct click
-  from your CV
-- Which country, browser and screen size
-- **How long they stayed**, as buckets under `dwell/`, for example
-  `dwell/work/2-5min`. Sent when the tab is hidden or closed.
-- **`cv-download`** every time somebody opens the PDF. That one is the signal
-  worth watching.
-
-### What you will not see
-
-Not individual people. GoatCounter sets no cookies and stores no personal data,
-which is exactly why it needs no consent banner. You will know that someone in
-Aachen spent four minutes on the Work page. You will not know who. For a job
-search that is the useful half anyway, and the legal exposure of the other half
-is not worth it in Germany.
-
-Empty the string and no analytics script loads at all.
-
----
-
-## The videos
-
-Nine came from your Drive folder and the dashboard walkthrough came later. All of
-them are compressed for the web: 790 MB down to 42 MB, whole site included.
-H.264 at CRF 26 to 30, 1280 across the long edge, with `faststart` so playback
-starts before the download finishes. Your originals in Drive are untouched.
-
-The two phone clips, the water dispenser and the four-legged robot, were
-originally scaled to 1280 **wide** even though they are portrait, which made them
-1280 by 2276 and cost 30 MB between them for no visible gain. They are now scaled
-by height instead.
-
-Poster frames are pulled from inside each clip with ffmpeg, never from the
-opening title card.
-
-The dashboard clip has the Windows taskbar cropped off the bottom. If you record
-a new one, use a clean desktop or tell me and I will crop it again.
-
-## Motion
-
-Four different entrances, set by `data-anim` on the element:
-
-| value | what happens | used on |
-|---|---|---|
-| `rise` | lifts and fades in | headings, text blocks |
-| `wipe` | uncovers from the bottom edge | video and images |
-| `scale` | settles in from slightly small | cards |
-| `seq` | children arrive one after another | grids, lists, the layer panel |
-
-One fade on everything is a sign nobody chose it, so each kind of content moves
-differently. The four figures on the home page count up from zero, and the real
-number is written in the HTML so it is still correct if the script never runs.
-`prefers-reduced-motion: reduce` turns all of it off.
-
-## Editing
-
-Content is plain HTML in the three pages. Colours are CSS custom properties at
-the top of `assets/css/site.css` under `:root`, with the dark theme redefining
-the same names further down. The theme toggle sits in the nav and remembers the
-choice.
-
-Two rules worth keeping when you edit the copy, both in
-`.claude\skills\no-ai-slop`:
-
-- No em dashes, and no comma before "and" or "or".
-- Plain sentence first, technical sentence second. Every project has a
-  `<p class="tech">` for the vocabulary, so the paragraph above it can stay in
-  words anyone follows.
+Hand written HTML and CSS, one stylesheet, one script, no framework and no build
+step. It is three pages and it loads in under a second. Light and dark themes
+follow your system setting. Analytics are cookieless, so there is no consent
+banner and nothing personal is stored about you.

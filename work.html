@@ -4,7 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work, Guna Thiagarajan</title>
-<meta name="description" content="Nine engineering projects with video. An electrolysis dashboard, car infotainment diagnostics for BMW and Daimler, two devices sold to customers, published research and walking robots.">
+<meta name="description" content="Nine engineering projects with video. An electrolysis dashboard, car infotainment diagnostics for BMW and Mercedes-Benz, two devices sold to customers, published research and walking robots.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://guna201099.github.io/work.html">
+<!-- The card that shows when this link is pasted into LinkedIn, Slack or an email. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guna201099.github.io/work.html">
+<meta property="og:title" content="Work, Guna Thiagarajan">
+<meta property="og:description" content="Nine engineering projects, eight of them on video. An electrolysis dashboard, car infotainment diagnostics for BMW and Mercedes-Benz, two devices sold to customers, published research and walking robots.">
+<meta property="og:image" content="https://guna201099.github.io/assets/poster/digital-twin.jpg">
+<meta property="og:image:alt" content="The live dashboard for a CO2 electrolysis rig">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Guna Thiagarajan">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -71,8 +82,8 @@
       <div class="p-body">
         <div class="p-text" data-anim="rise">
           <p class="result">Getting a test campaign ready went from hours to about five minutes. I proposed the project myself after watching scientists work out live experiments in Excel.</p>
-          <p>A CO&#8322; electrolyser is a machine that turns carbon dioxide into something useful. Running one is an experiment, and the people running it could not see how it was doing until long after it had finished.</p>
-          <p>My software reads the rig while the experiment is still going. It fixes the broken rows, lines every sensor up in time and keeps it all in a small database on the machine itself, so nothing has to reach the cloud first. It watches for the moment the readings change shape, which usually means the cell is wearing out, and it predicts what should have happened instead. A desktop app on top writes the reports the team used to write by hand.</p>
+          <p>A CO&#8322; electrolyser is a machine that turns carbon dioxide into something useful. Running one is an experiment. The people running it could not see how it was doing until long after it had finished.</p>
+          <p>My software reads the rig while the experiment is still going. It fixes the broken rows, lines every sensor up in time and keeps it all in a small database on the machine itself, so nothing has to reach the cloud first. It watches for the moment the readings change shape, which usually means the cell is wearing out. Then it predicts what should have happened instead. A desktop app on top writes the reports the team used to write by hand.</p>
           <p class="tech"><b>Under the hood.</b> Live ingestion over OPC UA and Modbus. DuckDB for in-memory vectorised time-series querying at the edge. Variance estimators and statistical change-point detection for structural breaks. Random Forest forecasting and correction against history. Faradaic efficiency and energy-cost KPIs. PyQt6 front end.</p>
           <ul class="stack">
             <li>Python</li><li>DuckDB</li><li>scikit-learn</li><li>Random Forest</li>
@@ -112,8 +123,8 @@
       <div class="p-body">
         <div class="p-text" data-anim="rise">
           <p class="result">Open warranty cases fell from 123 into single digits in six months. HARMAN recognised the result in November 2023.</p>
-          <p>The infotainment computers in BMW and Mercedes cars were coming back with faults, and the pile of open cases kept growing. Fixing them one at a time was never going to clear it.</p>
-          <p>So I went after the causes instead. I ran the faulty units on a test bench wired to behave like a car, wrote Python that reads the diagnostic logs, and worked each fault back to the thing that actually caused it. Finding a fault stopped being guesswork and became a written procedure anyone on the team could follow.</p>
+          <p>The infotainment computers in BMW and Mercedes-Benz cars were coming back with faults. The pile of open cases kept growing. Fixing them one at a time was never going to clear it.</p>
+          <p>So I went after the causes instead. I ran the faulty units on a test bench wired to behave like a car, wrote Python that reads the diagnostic logs and worked each fault back to the thing that actually caused it. Finding a fault stopped being guesswork and became a written procedure anyone on the team could follow.</p>
           <p class="tech"><b>Under the hood.</b> 8D root-cause methodology. Hardware-in-the-loop validation. Python trace-log parsing. Every closure documented to ISO/IATF 16949 audit standards.</p>
           <ul class="stack">
             <li>8D</li><li>hardware-in-the-loop</li><li>Python</li><li>ECU diagnostics</li><li>ISO/IATF 16949</li>
@@ -136,14 +147,14 @@
 
     <article class="project" id="di-water">
       <div class="p-top" data-anim="rise">
-        <p class="eyebrow">Vishnu Automation &middot; sold to a customer</p>
+        <p class="eyebrow">Vishnu Automation &middot; internship &middot; sold to a customer</p>
         <span class="tags">Industrial control</span>
       </div>
       <h2 data-anim="rise">Deionised Water Dispenser</h2>
       <div class="p-body">
         <div class="p-text" data-anim="rise">
           <p class="result">Designed, built and installed. It still supplies water to CNC machines.</p>
-          <p>Three things share one board and they do not get along. The flow sensors run on 3 volts, the controller on 5, and the pumps on 12. Every time a pump kicks in it throws a spike down the line, and the sensor readings go wrong.</p>
+          <p>Three things share one board and they do not get along. The flow sensors run on 3 volts, the controller on 5 and the pumps on 12. Every time a pump kicks in it throws a spike down the line. The sensor readings go wrong.</p>
           <p>I kept them apart. The sensing side and the pump side sit behind their own regulators, with diodes catching the spikes before they travel. It is a dull decision and it is the reason the unit is still working.</p>
           <p class="tech"><b>Under the hood.</b> Embedded C. Multi-domain voltage isolation, precise regulators and flyback protection between the sensing logic and the high-power actuation.</p>
           <ul class="stack"><li>Embedded C</li><li>voltage regulation</li><li>flyback protection</li><li>flow sensing</li></ul>
@@ -157,7 +168,7 @@
 
     <article class="project" id="sanitizer">
       <div class="p-top" data-anim="rise">
-        <p class="eyebrow">MMAK Industries &middot; sold to a customer</p>
+        <p class="eyebrow">MMAK Industries &middot; internship &middot; sold to a customer</p>
         <span class="tags">Timing under load</span>
       </div>
       <h2 data-anim="rise">Contactless Sanitiser with Audio</h2>
@@ -187,7 +198,7 @@
           <p class="result">A wheelchair that drives out of the bed itself. Four international awards.</p>
           <p>The paper is about the care idea. The engineering was making a bed move a person without hurting them, which meant sixteen motor channels working together and not fighting each other.</p>
           <p>The hard part was power. When several motors start at once they kick current back down the line and that can kill the controller. Since this thing had to stand on its own and hold a person, I gave it a battery system that absorbs that.</p>
-          <p class="tech"><b>Under the hood.</b> Embedded C. 16-channel servo driver, H-bridge circuits for the DC geared motors, custom PWM drivers for the high-torque servos, and a battery management system sized for simultaneous inductive kickback.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. 16-channel servo driver, H-bridge circuits for the DC geared motors, custom PWM drivers for the high-torque servos and a battery management system sized for simultaneous inductive kickback.</p>
           <ul class="stack"><li>Embedded C</li><li>16-channel servo driver</li><li>H-bridge</li><li>PWM</li><li>BMS</li></ul>
         </div>
         <div data-anim="wipe">
@@ -205,7 +216,7 @@
       <h2 data-anim="rise">Face Recognition that Opens a Door</h2>
       <div class="p-body">
         <div class="p-text" data-anim="rise">
-          <p class="result">97% accuracy, and the interesting problem was the handover to the hardware.</p>
+          <p class="result">97% accuracy. The interesting problem was the handover to the hardware.</p>
           <p>Recognising a face is the part everyone talks about. I tried four methods and picked the one that was fast enough to run without special hardware.</p>
           <p>The part nobody talks about is what happens next. The answer has to leave the computer and move something heavy: a sliding door on a 12 volt motor rated to pull 150 kilograms. Accuracy is easy to put in a paper. The delay between recognising someone and the door moving is what decides whether it feels broken.</p>
           <p class="tech"><b>Under the hood.</b> MATLAB. Evaluated PCA, LDA and Kanade-Lucas-Tomasi before choosing Viola-Jones with Haar-like features over integral images. Output mapped over UART to an Arduino UNO driving an H-bridge.</p>
@@ -228,14 +239,14 @@
 
     <article class="project" id="poct">
       <div class="p-top" data-anim="rise">
-        <p class="eyebrow">A.D. Paul &amp; Co. &middot; 2020 to 2021</p>
+        <p class="eyebrow">A.D. Paul &amp; Co. &middot; internship &middot; 2020 to 2021</p>
         <span class="tags">Medical sensing</span>
       </div>
       <h2 data-anim="rise">Point-of-Care Testing Device</h2>
       <div class="p-body">
         <div class="p-text" data-anim="rise">
           <p class="result">Reads heart rate and blood oxygen without the processor ever holding it up.</p>
-          <p>A heartbeat does not wait. If the chip is busy when the next reading arrives, that reading is gone, and the trace you end up with is a lie.</p>
+          <p>A heartbeat does not wait. If the chip is busy when the next reading arrives, that reading is gone. The trace you end up with is a lie.</p>
           <p>The first job was the wiring, which was smearing the signal until I retuned it. The real fix came after that. Instead of the processor asking the sensor for every reading, the sensor now fills its own small buffer and hands the whole lot over in one go. The processor is free the rest of the time.</p>
           <p class="tech"><b>Under the hood.</b> Embedded C on a MAX86150 analog front end over I&#178;C. Bus capacitance solved by tuning the pull-up resistors. Acquisition moved onto interrupt service routines with Direct Memory Access and hardware FIFOs, fetching in autonomous high-speed bursts.</p>
           <ul class="stack"><li>Embedded C</li><li>MAX86150</li><li>I&#178;C</li><li>DMA</li><li>hardware FIFO</li><li>ISR</li></ul>
@@ -259,8 +270,8 @@
         <div class="p-text" data-anim="rise">
           <p class="result">Timestamps that stay honest through a power cut.</p>
           <p>The system weighs what is in the kitchen and logs it. Weighing was the easy half.</p>
-          <p>The problem is that power goes out and networks drop. A controller that comes back up guessing the time writes wrong timestamps over good data, and by the time anyone notices the log is worthless. I gave it a clock chip with its own battery, so the time is right the second it wakes up and the log carries on where it left off.</p>
-          <p class="tech"><b>Under the hood.</b> Embedded C. Load cells with HX711 amplifiers, and a battery-backed DS3231 real-time clock on I&#178;C for hardware-level timestamping through a complete blackout.</p>
+          <p>The problem is that power goes out and networks drop. A controller that comes back up guessing the time writes wrong timestamps over good data. By the time anyone notices, the log is worthless. I gave it a clock chip with its own battery, so the time is right the second it wakes up and the log carries on where it left off.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. Load cells with HX711 amplifiers and a battery-backed DS3231 real-time clock on I&#178;C for hardware-level timestamping through a complete blackout.</p>
           <ul class="stack"><li>Embedded C</li><li>HX711</li><li>load cells</li><li>DS3231 RTC</li><li>I&#178;C</li></ul>
         </div>
         <div data-anim="wipe">
@@ -300,7 +311,7 @@
   <div class="wrap cta-inner">
     <div>
       <h2>Four employers, two countries, one thread.</h2>
-      <p>Where the experience came from, what I studied, and the tools behind all of the above.</p>
+      <p>Where the experience came from, what I studied and the tools behind all of the above.</p>
     </div>
     <a class="btn" href="about.html">Read the background
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
