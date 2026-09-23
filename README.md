@@ -15,69 +15,40 @@ assets/
   video/web/    ten web-encoded videos, about 42 MB total
 ```
 
-## Going live on GitHub Pages
+## It is live
 
-Your CV prints **guna201099.github.io**, and every copy of it links there.
-Publish before you send anything. A dead link on a CV is worse than no link.
+**https://guna201099.github.io**
 
-### 1. Make the repository
+Deployed 23 September 2026. Every CV links there and the link is clickable in
+the PDF.
 
-The name has to be **exactly** your username plus `.github.io`, or Pages will
-not serve it at the short address.
-
-1. Sign in as `Guna201099` and go to **https://github.com/new**
-2. Repository name: `guna201099.github.io`
-3. **Public**. Leave every checkbox unticked, so the repo starts empty.
-4. Create repository.
-
-### 2. Upload the site
-
-On the empty repo page, click **uploading an existing file**.
-
-Open `F:\JobHunt\portfolio` in Explorer, select `index.html`, `work.html`,
-`about.html`, `README.md` and the whole `assets` folder, and drag them onto the
-page. Wait for all of it to finish uploading, then **Commit changes**.
-
-`index.html` must end up at the top level, with `assets/` beside it. If you see
-`portfolio/index.html` in the repo, the folder itself got dragged instead of its
-contents. Delete and redo.
-
-### 3. Turn Pages on
-
-Settings, Pages, Source: **Deploy from a branch**, branch `main`, folder
-**`/ (root)`**, Save.
-
-Give it two or three minutes, then open **https://guna201099.github.io**.
-The first build is the slow one. Everything after it is quick.
-
-### 4. Put the link on your GitHub profile
-
-Two places, both worth doing, because a recruiter who has your CV will often
-look at the GitHub account too.
-
-**The website field.** Click your avatar, Settings, Public profile. Fill in:
-
-| Field | Value |
+| What | Where |
 |---|---|
-| Name | `Guna Thiagarajan` |
-| Bio | `Sensors, test benches and machine learning. M.Sc. Sustainable Energy Systems, TU Dortmund.` |
-| URL | `https://guna201099.github.io` |
-| Company | `Fraunhofer UMSICHT` |
-| Location | `Dortmund, Germany` |
+| Site repo | https://github.com/Guna201099/guna201099.github.io |
+| Profile repo | https://github.com/Guna201099/Guna201099 |
+| Pages source | branch `main`, folder `/ (root)`, HTTPS enforced |
+| Analytics | https://gunathiagarajan.goatcounter.com |
 
-The URL shows as a clickable link in the left column of your profile.
+### One thing left, and it needs a browser
 
-**The profile page itself.** GitHub shows the README of a repository named after
-you at the top of your profile. There is one ready at
-`F:\JobHunt\github-profile\README.md`.
+GitHub removed repo pinning from their API, so it cannot be scripted. On
+https://github.com/Guna201099, click **Customize your pins** and tick
+`guna201099.github.io`. Ten seconds, and it puts the site in the big box on your
+profile instead of leaving it in the repository list.
 
-1. **https://github.com/new**, repository name `Guna201099` (exactly your
-   username). GitHub will say "you found a secret" when you type it.
-2. Public, tick **Add a README file**, create.
-3. Open the README, click the pencil, paste in the contents of that file, commit.
+### Updating the site later
 
-**Pin the site repo.** On your profile, Customize your pins, tick
-`guna201099.github.io`. That puts it in the big box people actually look at.
+This folder is the git repository. Edit the files here, then:
+
+```bash
+cd /f/JobHunt/portfolio
+git add -A
+git commit -m "what changed"
+git push
+```
+
+Live again in about a minute. If the CV changes, copy the new PDF over
+`assets/Guna_Thiagarajan_CV.pdf` first, since the site serves its own copy.
 
 ### Later, for about 5 euros a year
 
@@ -86,7 +57,6 @@ repository root containing just that domain, and point the domain's DNS at
 GitHub. The site keeps working at both addresses. Tell me when you have it and
 I will change all the CVs in one pass.
 
----
 
 ## Visitor analytics
 
