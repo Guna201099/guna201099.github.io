@@ -1,0 +1,329 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work, Guna Thiagarajan</title>
+<meta name="description" content="Nine engineering projects with video. An electrolysis dashboard, car infotainment diagnostics for BMW and Daimler, two devices sold to customers, published research and walking robots.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<div class="scroll-bar"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Guna Thiagarajan<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" aria-current="page">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="nav-cv" href="assets/Guna_Thiagarajan_CV.pdf">CV</a></li>
+      <li>
+        <button class="theme-btn" type="button" aria-label="Switch colour theme">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.3 8.3 0 1 0 10.5 10.5z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:clamp(38px,5.5vw,70px) clamp(20px,2.6vw,34px)">
+  <div class="wrap">
+    <p class="eyebrow stagger">Nine projects, eight of them on video</p>
+    <h1 class="stagger" style="font-size:clamp(32px,5.2vw,58px)">Work</h1>
+    <p class="lede stagger" style="margin-top:18px;margin-bottom:26px">Two were sold to customers. Two are published. Where there is a video, it is the real thing on the bench.</p>
+    <ul class="jump stagger">
+      <li><a href="#digital-twin">Electrolysis Dashboard</a></li>
+      <li><a href="#harman">Car Infotainment</a></li>
+      <li><a href="#di-water">Water Dispenser</a></li>
+      <li><a href="#sanitizer">Sanitiser</a></li>
+      <li><a href="#smart-bed">SMART Bed</a></li>
+      <li><a href="#face-recognition">Face Recognition</a></li>
+      <li><a href="#poct">Point-of-Care Device</a></li>
+      <li><a href="#smart-kitchen">Smart Kitchen</a></li>
+      <li><a href="#robots">Walking Robots</a></li>
+    </ul>
+  </div>
+</header>
+
+<hr class="rule">
+
+<main class="wrap">
+
+  <!-- ================================================ NOW -->
+  <div class="group">
+    <div class="group-head" data-anim="rise">
+      <h2>Now</h2>
+      <span>2023 to 2026 &middot; Germany</span>
+    </div>
+
+    <article class="project" id="digital-twin">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">Fraunhofer UMSICHT &middot; master's thesis</p>
+        <span class="tags">Live data &middot; machine learning</span>
+      </div>
+      <h2 data-anim="rise">A Live Dashboard for CO&#8322; Electrolysis</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">Getting a test campaign ready went from hours to about five minutes. I proposed the project myself after watching scientists work out live experiments in Excel.</p>
+          <p>A CO&#8322; electrolyser is a machine that turns carbon dioxide into something useful. Running one is an experiment, and the people running it could not see how it was doing until long after it had finished.</p>
+          <p>My software reads the rig while the experiment is still going. It fixes the broken rows, lines every sensor up in time and keeps it all in a small database on the machine itself, so nothing has to reach the cloud first. It watches for the moment the readings change shape, which usually means the cell is wearing out, and it predicts what should have happened instead. A desktop app on top writes the reports the team used to write by hand.</p>
+          <p class="tech"><b>Under the hood.</b> Live ingestion over OPC UA and Modbus. DuckDB for in-memory vectorised time-series querying at the edge. Variance estimators and statistical change-point detection for structural breaks. Random Forest forecasting and correction against history. Faradaic efficiency and energy-cost KPIs. PyQt6 front end.</p>
+          <ul class="stack">
+            <li>Python</li><li>DuckDB</li><li>scikit-learn</li><li>Random Forest</li>
+            <li>change-point detection</li><li>PyQt6</li><li>LabVIEW</li><li>OPC UA</li>
+          </ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player">
+            <video controls preload="metadata" playsinline poster="assets/poster/digital-twin.jpg">
+              <source src="assets/video/web/digital-twin.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="p-caption">Full walkthrough of the running dashboard, five minutes</p>
+        </div>
+      </div>
+
+      <div style="margin-top:clamp(22px,3vw,36px)" data-anim="seq">
+        <dl class="spec-panel">
+          <div><dt>Layer 1</dt><dd>Reads the rig while it is still running, over OPC UA and Modbus</dd></div>
+          <div><dt>Layer 2</dt><dd>Repairs broken rows and lines every sensor channel up in time</dd></div>
+          <div><dt>Layer 3</dt><dd>Stores it in DuckDB on the machine, so querying is fast and local</dd></div>
+          <div><dt>Layer 4</dt><dd>Works out Faradaic efficiency and energy cost while the run happens</dd></div>
+          <div><dt>Layer 5</dt><dd>Watches for the point where the readings change shape</dd></div>
+          <div><dt>Layer 6</dt><dd>Forecasts and corrects against what the rig did before</dd></div>
+          <div><dt>Layer 7</dt><dd>A PyQt6 application that writes its own reports</dd></div>
+        </dl>
+        <p class="p-caption">The seven layers, in the order the data moves through them</p>
+      </div>
+    </article>
+
+    <article class="project" id="harman">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">HARMAN International &middot; 2023 to 2024</p>
+        <span class="tags">Validation &middot; root cause</span>
+      </div>
+      <h2 data-anim="rise">Car Infotainment Diagnostics, Hermes Programme</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">Open warranty cases fell from 123 into single digits in six months. HARMAN recognised the result in November 2023.</p>
+          <p>The infotainment computers in BMW and Mercedes cars were coming back with faults, and the pile of open cases kept growing. Fixing them one at a time was never going to clear it.</p>
+          <p>So I went after the causes instead. I ran the faulty units on a test bench wired to behave like a car, wrote Python that reads the diagnostic logs, and worked each fault back to the thing that actually caused it. Finding a fault stopped being guesswork and became a written procedure anyone on the team could follow.</p>
+          <p class="tech"><b>Under the hood.</b> 8D root-cause methodology. Hardware-in-the-loop validation. Python trace-log parsing. Every closure documented to ISO/IATF 16949 audit standards.</p>
+          <ul class="stack">
+            <li>8D</li><li>hardware-in-the-loop</li><li>Python</li><li>ECU diagnostics</li><li>ISO/IATF 16949</li>
+          </ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="still"><img src="assets/poster/harman-award.png" alt="HARMAN recognition certificate for achieving single digit backlog in Hermes" loading="lazy"></div>
+          <p class="p-caption">HARMAN recognition, 23 November 2023</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================================================ SOLD AND PUBLISHED -->
+  <div class="group">
+    <div class="group-head" data-anim="rise">
+      <h2>Sold and published</h2>
+      <span>Two went to customers &middot; two were peer reviewed</span>
+    </div>
+
+    <article class="project" id="di-water">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">Vishnu Automation &middot; sold to a customer</p>
+        <span class="tags">Industrial control</span>
+      </div>
+      <h2 data-anim="rise">Deionised Water Dispenser</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">Designed, built and installed. It still supplies water to CNC machines.</p>
+          <p>Three things share one board and they do not get along. The flow sensors run on 3 volts, the controller on 5, and the pumps on 12. Every time a pump kicks in it throws a spike down the line, and the sensor readings go wrong.</p>
+          <p>I kept them apart. The sensing side and the pump side sit behind their own regulators, with diodes catching the spikes before they travel. It is a dull decision and it is the reason the unit is still working.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. Multi-domain voltage isolation, precise regulators and flyback protection between the sensing logic and the high-power actuation.</p>
+          <ul class="stack"><li>Embedded C</li><li>voltage regulation</li><li>flyback protection</li><li>flow sensing</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player"><video controls preload="metadata" poster="assets/poster/di-water.jpg" playsinline><source src="assets/video/web/di-water.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">The installed unit, on site</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="sanitizer">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">MMAK Industries &middot; sold to a customer</p>
+        <span class="tags">Timing under load</span>
+      </div>
+      <h2 data-anim="rise">Contactless Sanitiser with Audio</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">The speech was starving the sensors. I fixed it by refusing to do both jobs on one chip.</p>
+          <p>The dispenser talks to you while it works. The trouble was that playing sound took up the whole controller, so the moment somebody put a hand under it the sensor had to wait its turn. In a contactless dispenser, that is the one thing that must never lag.</p>
+          <p>I moved the sound onto a separate module with its own memory card. Now the controller only says "play track four" and goes straight back to watching for a hand.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. Audio payloads offloaded to an SD card behind a DFPlayer Mini so the main controller stays available for the IR and ultrasonic interrupt requests.</p>
+          <ul class="stack"><li>Embedded C</li><li>ISR</li><li>IR &amp; ultrasonic</li><li>DFPlayer Mini</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player"><video controls preload="metadata" poster="assets/poster/sanitizer.jpg" playsinline><source src="assets/video/web/sanitizer.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">The production unit, with audio</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="smart-bed">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">Published in the Indian Journal of Public Health &middot; Scopus</p>
+        <span class="tags">Motors &middot; sensors</span>
+      </div>
+      <h2 data-anim="rise">SMART Bed for Elderly Care</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">A wheelchair that drives out of the bed itself. Four international awards.</p>
+          <p>The paper is about the care idea. The engineering was making a bed move a person without hurting them, which meant sixteen motor channels working together and not fighting each other.</p>
+          <p>The hard part was power. When several motors start at once they kick current back down the line and that can kill the controller. Since this thing had to stand on its own and hold a person, I gave it a battery system that absorbs that.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. 16-channel servo driver, H-bridge circuits for the DC geared motors, custom PWM drivers for the high-torque servos, and a battery management system sized for simultaneous inductive kickback.</p>
+          <ul class="stack"><li>Embedded C</li><li>16-channel servo driver</li><li>H-bridge</li><li>PWM</li><li>BMS</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player"><video controls preload="metadata" poster="assets/poster/smart-bed.jpg" playsinline><source src="assets/video/web/smart-bed.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">Full demonstration, including the wheelchair coming out</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="face-recognition">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">Published in IJITEE &middot; 2021</p>
+        <span class="tags">Vision &middot; motors</span>
+      </div>
+      <h2 data-anim="rise">Face Recognition that Opens a Door</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">97% accuracy, and the interesting problem was the handover to the hardware.</p>
+          <p>Recognising a face is the part everyone talks about. I tried four methods and picked the one that was fast enough to run without special hardware.</p>
+          <p>The part nobody talks about is what happens next. The answer has to leave the computer and move something heavy: a sliding door on a 12 volt motor rated to pull 150 kilograms. Accuracy is easy to put in a paper. The delay between recognising someone and the door moving is what decides whether it feels broken.</p>
+          <p class="tech"><b>Under the hood.</b> MATLAB. Evaluated PCA, LDA and Kanade-Lucas-Tomasi before choosing Viola-Jones with Haar-like features over integral images. Output mapped over UART to an Arduino UNO driving an H-bridge.</p>
+          <ul class="stack"><li>MATLAB</li><li>Viola-Jones</li><li>PCA</li><li>LDA</li><li>UART</li><li>Arduino</li><li>H-bridge</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player"><video controls preload="metadata" poster="assets/poster/face-recognition.jpg" playsinline><source src="assets/video/web/face-recognition.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">Recognition triggering the door</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================================================ INSTRUMENTS -->
+  <div class="group">
+    <div class="group-head" data-anim="rise">
+      <h2>Instruments and control</h2>
+      <span>Where the timing matters more than the algorithm</span>
+    </div>
+
+    <article class="project" id="poct">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">A.D. Paul &amp; Co. &middot; 2020 to 2021</p>
+        <span class="tags">Medical sensing</span>
+      </div>
+      <h2 data-anim="rise">Point-of-Care Testing Device</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">Reads heart rate and blood oxygen without the processor ever holding it up.</p>
+          <p>A heartbeat does not wait. If the chip is busy when the next reading arrives, that reading is gone, and the trace you end up with is a lie.</p>
+          <p>The first job was the wiring, which was smearing the signal until I retuned it. The real fix came after that. Instead of the processor asking the sensor for every reading, the sensor now fills its own small buffer and hands the whole lot over in one go. The processor is free the rest of the time.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C on a MAX86150 analog front end over I&#178;C. Bus capacitance solved by tuning the pull-up resistors. Acquisition moved onto interrupt service routines with Direct Memory Access and hardware FIFOs, fetching in autonomous high-speed bursts.</p>
+          <ul class="stack"><li>Embedded C</li><li>MAX86150</li><li>I&#178;C</li><li>DMA</li><li>hardware FIFO</li><li>ISR</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="still"><img src="assets/poster/poct-1.jpg" alt="Early 3D printed prototype showing the sensor and control surface" loading="lazy"></div>
+          <p class="p-caption">Early 3D printed prototype</p>
+          <div class="player" style="margin-top:16px"><video controls preload="metadata" poster="assets/poster/poct-2.jpg" playsinline><source src="assets/video/web/poct-2.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">Taking a measurement</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="smart-kitchen">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">2020</p>
+        <span class="tags">Data you can trust</span>
+      </div>
+      <h2 data-anim="rise">Smart Kitchen</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">Timestamps that stay honest through a power cut.</p>
+          <p>The system weighs what is in the kitchen and logs it. Weighing was the easy half.</p>
+          <p>The problem is that power goes out and networks drop. A controller that comes back up guessing the time writes wrong timestamps over good data, and by the time anyone notices the log is worthless. I gave it a clock chip with its own battery, so the time is right the second it wakes up and the log carries on where it left off.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. Load cells with HX711 amplifiers, and a battery-backed DS3231 real-time clock on I&#178;C for hardware-level timestamping through a complete blackout.</p>
+          <ul class="stack"><li>Embedded C</li><li>HX711</li><li>load cells</li><li>DS3231 RTC</li><li>I&#178;C</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player"><video controls preload="metadata" poster="assets/poster/smart-kitchen.jpg" playsinline><source src="assets/video/web/smart-kitchen.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">System walkthrough</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="robots">
+      <div class="p-top" data-anim="rise">
+        <p class="eyebrow">Universiti Malaysia Perlis &middot; 2019</p>
+        <span class="tags">Real-time control</span>
+      </div>
+      <h2 data-anim="rise">Walking Robots, Two Legs and Four</h2>
+      <div class="p-body">
+        <div class="p-text" data-anim="rise">
+          <p class="result">Balance came from maths, not from timed pauses.</p>
+          <p>The easy way to make a robot walk is to tell each joint to move, wait, then move the next one. It works at a crawl. In a race it falls over.</p>
+          <p>Instead the robot works out where each joint has to be, continuously, while it moves. That keeps the legs in step and lets it lean into its own weight at speed.</p>
+          <p class="tech"><b>Under the hood.</b> Embedded C. Inverse kinematics formulated for joint angles and spatial positioning, running on the microcontroller itself so multiple actuators stay synchronised.</p>
+          <ul class="stack"><li>Embedded C</li><li>inverse kinematics</li><li>servo synchronisation</li></ul>
+        </div>
+        <div data-anim="wipe">
+          <div class="player"><video controls preload="metadata" poster="assets/poster/robot-biped.jpg" playsinline><source src="assets/video/web/robot-biped.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">Two legs</p>
+          <div class="player" style="margin-top:16px"><video controls preload="metadata" poster="assets/poster/robot-quadruped.jpg" playsinline><source src="assets/video/web/robot-quadruped.mp4" type="video/mp4"></video></div>
+          <p class="p-caption">Four legs</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+</main>
+
+<div class="cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Four employers, two countries, one thread.</h2>
+      <p>Where the experience came from, what I studied, and the tools behind all of the above.</p>
+    </div>
+    <a class="btn" href="about.html">Read the background
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="eyebrow">Open to work from November 2026</p>
+      <a class="foot-mail" href="mailto:tguna1020@gmail.com">tguna1020@gmail.com</a>
+    </div>
+    <div class="foot-meta">
+      <a class="foot-phone" href="tel:+4917685910775">+49 176 859 10775</a><br>
+      <a href="https://www.linkedin.com/in/guna20/">linkedin.com/in/guna20</a><br>
+      <a href="https://github.com/Guna201099">github.com/Guna201099</a><br>
+      <a href="assets/Guna_Thiagarajan_CV.pdf">Download CV (PDF)</a><br>
+      Dortmund, Germany
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

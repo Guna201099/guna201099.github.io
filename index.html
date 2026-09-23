@@ -1,0 +1,240 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guna Thiagarajan, edge systems and machine learning</title>
+<meta name="description" content="Engineer working where sensors meet machine learning. CO2 electrolysis test benches at Fraunhofer, car infotainment validation at HARMAN, and embedded instruments that shipped.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<div class="scroll-bar"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Guna Thiagarajan<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="nav-cv" href="assets/Guna_Thiagarajan_CV.pdf">CV</a></li>
+      <li>
+        <button class="theme-btn" type="button" aria-label="Switch colour theme">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4a8.3 8.3 0 1 0 10.5 10.5z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <!-- A sensor trace, drawn once. Decoration, but made of the thing this site is about. -->
+  <svg class="trace" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+    <path class="a" vector-effect="non-scaling-stroke" d="M0 250 L40 244 L80 256 L120 190 L160 206 L200 198 L240 274 L280 132 L320 166 L360 158 L400 170 L440 100 L480 142 L520 132 L560 220 L600 208 L640 214 L680 118 L720 152 L760 144 L800 232 L840 220 L880 226 L920 112 L960 148 L1000 138 L1040 196 L1080 184 L1120 190 L1160 92 L1200 128"/>
+    <path class="b" vector-effect="non-scaling-stroke" d="M0 330 L60 322 L120 336 L180 300 L240 312 L300 262 L360 280 L420 272 L480 226 L540 248 L600 240 L660 200 L720 222 L780 214 L840 176 L900 198 L960 190 L1020 154 L1080 176 L1140 168 L1200 134"/>
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow stagger">Dortmund, Germany</p>
+      <h1 class="stagger">Sensors first.<br>Then the model.</h1>
+      <p class="lede stagger">I get honest data out of machines, then write the software that reads it. CO&#8322; electrolysis test benches at Fraunhofer. Car infotainment computers at HARMAN. Small devices that shipped and are still running.</p>
+      <div class="hero-cta stagger">
+        <a class="btn" href="work.html">See the work
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="assets/Guna_Thiagarajan_CV.pdf">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-portrait stagger">
+      <img class="portrait" src="assets/img-profile.jpg" alt="Guna Thiagarajan" width="215" height="215">
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<!-- The four things a recruiter checks before reading anything else. -->
+<section>
+  <div class="wrap">
+    <dl class="seeking" data-anim="seq">
+      <div>
+        <dt>Looking for</dt>
+        <dd>Test, data or research engineering<small>Industry or institute, full time or doctorate</small></dd>
+      </div>
+      <div>
+        <dt>Available</dt>
+        <dd>1 November 2026<small>M.Sc. finishes October 2026</small></dd>
+      </div>
+      <div>
+        <dt>Based in</dt>
+        <dd>Dortmund, Germany<small>Full work rights, happy to relocate</small></dd>
+      </div>
+      <div>
+        <dt>Languages</dt>
+        <dd>English C1<small>German A2, B1 course in progress</small></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- The strongest thing on the site, so it goes first and it plays itself. -->
+<section>
+  <div class="wrap">
+    <div class="sec-head" data-anim="rise">
+      <p class="eyebrow">What I am building now</p>
+      <h2>A live dashboard for a CO&#8322; electrolysis rig</h2>
+      <p>Scientists at Fraunhofer were running experiments on a test stand, then working the results out in Excel hours later. I asked if I could fix that, and it became my master's thesis.</p>
+    </div>
+
+    <!-- A 22 second loop, so the page opens on something alive rather than on a
+         title card. The full five minute walkthrough is on the Work page. -->
+    <div class="showreel" data-anim="wipe">
+      <div class="player">
+        <video data-autoplay muted loop playsinline preload="metadata"
+               poster="assets/poster/digital-twin.jpg" aria-label="The dashboard running">
+          <source src="assets/video/web/digital-twin-loop.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="p-caption">The real thing, running. Six tabs of live readings off the rig.</p>
+      <p style="margin-top:14px">
+        <a class="btn btn-ghost" href="work.html#digital-twin">Watch the full walkthrough
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap">
+    <div class="tally" data-anim="seq">
+      <div>
+        <b><span data-count="123">123</span></b>
+        <span>open warranty cases at HARMAN, taken into single digits in six months</span>
+      </div>
+      <div>
+        <b><span data-count="5" data-count-suffix=" min">5 min</span></b>
+        <span>to get a test campaign ready at Fraunhofer, down from hours</span>
+      </div>
+      <div>
+        <b><span data-count="9">9</span></b>
+        <span>engineering projects, two of them sold to customers</span>
+      </div>
+      <div>
+        <b><span data-count="4">4</span></b>
+        <span>peer-reviewed publications, one of them in a Scopus journal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap">
+    <div class="sec-head" data-anim="rise">
+      <p class="eyebrow">How I work</p>
+      <h2>Data is useless if you cannot get it out of the machine cleanly.</h2>
+    </div>
+    <div class="cols" data-anim="seq">
+      <div class="col">
+        <span class="num">01</span>
+        <h3>Get the signal out</h3>
+        <p>Most data problems turn out to be hardware problems in disguise. A noisy bus, a late interrupt, a clock that resets when the power drops.</p>
+      </div>
+      <div class="col">
+        <span class="num">02</span>
+        <h3>Clean it where it is measured</h3>
+        <p>Fix broken rows, line every sensor up in time, put it somewhere you can ask questions of. A run should be ready to read in minutes.</p>
+      </div>
+      <div class="col">
+        <span class="num">03</span>
+        <h3>Then let the model speak</h3>
+        <p>Spot the moment the behaviour changes, and forecast against what the machine did before. This works because the input was trustworthy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap">
+    <div class="sec-head" data-anim="rise">
+      <p class="eyebrow">Selected projects</p>
+      <h2>Things that had to work outside a notebook</h2>
+    </div>
+    <div class="work-grid" data-anim="seq">
+
+      <a class="card" href="work.html#poct">
+        <div class="card-media"><img src="assets/poster/poct-1.jpg" alt="Point-of-care testing device prototype" loading="lazy"></div>
+        <div class="card-body">
+          <p class="org">A.D. Paul &amp; Co.</p>
+          <h3>Point-of-Care Testing Device</h3>
+          <p>Reads heart rate and blood oxygen. The sensor fills its own buffer, so the processor never holds it up.</p>
+        </div>
+      </a>
+
+      <a class="card" href="work.html#smart-bed">
+        <div class="card-media"><img src="assets/poster/smart-bed.jpg" alt="SMART Bed for elderly care" loading="lazy"></div>
+        <div class="card-body">
+          <p class="org">Published &middot; Scopus</p>
+          <h3>SMART Bed for Elderly Care</h3>
+          <p>A wheelchair that drives out of a hospital bed. Sixteen motor channels and its own battery system.</p>
+        </div>
+      </a>
+
+      <a class="card" href="work.html#di-water">
+        <div class="card-media"><img src="assets/poster/di-water.jpg" alt="Deionised water dispenser" loading="lazy"></div>
+        <div class="card-body">
+          <p class="org">Vishnu Automation &middot; Sold</p>
+          <h3>Deionised Water Dispenser</h3>
+          <p>Feeds CNC machines. Three different voltages on one board, kept apart so the pumps cannot spoil the readings.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Nine projects, most of them on video.</h2>
+      <p>Two were sold to customers. Two are published. All of them had to survive contact with real hardware.</p>
+    </div>
+    <a class="btn" href="work.html">Browse the work
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="eyebrow">Open to work from November 2026</p>
+      <a class="foot-mail" href="mailto:tguna1020@gmail.com">tguna1020@gmail.com</a>
+    </div>
+    <div class="foot-meta">
+      <a class="foot-phone" href="tel:+4917685910775">+49 176 859 10775</a><br>
+      <a href="https://www.linkedin.com/in/guna20/">linkedin.com/in/guna20</a><br>
+      <a href="https://github.com/Guna201099">github.com/Guna201099</a><br>
+      <a href="assets/Guna_Thiagarajan_CV.pdf">Download CV (PDF)</a><br>
+      Dortmund, Germany
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

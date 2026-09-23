@@ -1,0 +1,7 @@
+# Throwaway copies made when screenshotting the pages for review
+_shot_*.html
+
+# Windows and editor noise
+Thumbs.db
+desktop.ini
+.DS_Store

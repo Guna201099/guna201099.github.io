@@ -1,0 +1,406 @@
+﻿/* ============================================================
+   Guna Thiagarajan, portfolio
+
+   Copper on deep indigo. Copper because the work is electrodes,
+   sensors and test benches, indigo so the video stills carry the
+   colour instead of the chrome. Both choices come from the
+   content, which is the only defence against a page that looks
+   like every other page.
+
+   Archivo for display, IBM Plex Sans for reading, IBM Plex Mono
+   for labels. Numbers that a person has to read or copy are never
+   set in the mono face.
+   ============================================================ */
+
+:root{
+  --ground:#f7f6f3;
+  --surface:#ffffff;
+  --surface-2:#eceae4;
+  --text:#12161d;
+  --muted:#4d5663;
+  --faint:#6e7787;
+  --line:#dddbd4;
+  --copper:#8f4f1f;
+  --copper-soft:#f4e8de;
+  --ice:#215a73;
+  --shadow:0 1px 2px rgba(18,22,29,.05),0 12px 32px -12px rgba(18,22,29,.16);
+  --shadow-lg:0 2px 4px rgba(18,22,29,.06),0 30px 64px -20px rgba(18,22,29,.26);
+
+  --display:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --wrap:1180px;
+  --gutter:clamp(20px,4.5vw,56px);
+  --nav-h:62px;
+  --trace-op:.13;        /* the hero sensor line, faint on paper */
+
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0d1017;
+    --surface:#151b24;
+    --surface-2:#1e2733;
+    --text:#e9ecf2;
+    --muted:#aeb8c6;
+    --faint:#8d99a8;
+    --line:#2a3542;
+    --copper:#e09a5f;
+    --copper-soft:#2d2117;
+    --ice:#9ccadd;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -12px rgba(0,0,0,.6);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.45),0 30px 64px -20px rgba(0,0,0,.7);
+    --trace-op:.24;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1017;
+  --surface:#151b24;
+  --surface-2:#1e2733;
+  --text:#e9ecf2;
+  --muted:#aeb8c6;
+  --faint:#8d99a8;
+  --line:#2a3542;
+  --copper:#e09a5f;
+  --copper-soft:#2d2117;
+  --ice:#9ccadd;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -12px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.45),0 30px 64px -20px rgba(0,0,0,.7);
+  --trace-op:.24;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px)}
+body{
+  margin:0;background:var(--ground);color:var(--text);
+  font-family:var(--body);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-variant-numeric:lining-nums;
+  transition:background-color .35s ease,color .35s ease;
+}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+
+/* ---------------------------------------------------- nav */
+.nav{
+  position:sticky;top:0;z-index:60;height:var(--nav-h);display:flex;align-items:center;
+  background:color-mix(in srgb,var(--ground) 86%,transparent);
+  backdrop-filter:saturate(1.6) blur(14px);
+  -webkit-backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease;
+}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;gap:18px}
+.brand{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--copper)}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2.2vw,26px);list-style:none;margin:0;padding:0}
+.nav-links a{font-size:14.5px;text-decoration:none;color:var(--muted);position:relative;padding-block:4px;transition:color .2s ease}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--copper);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--ease)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.nav-links a[aria-current="page"]{color:var(--text)}
+.nav-cv{color:var(--copper)!important;font-weight:500}
+
+/* How far down the page you are. One line, no numbers, no widget. */
+.scroll-bar{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:70;
+  background:var(--copper);transform:scaleX(0);transform-origin:left;
+  will-change:transform;
+}
+
+.theme-btn{
+  appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  width:33px;height:33px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:none;
+  transition:color .2s ease,border-color .2s ease,transform .35s var(--ease);
+}
+.theme-btn:hover{color:var(--copper);border-color:var(--copper);transform:rotate(-40deg)}
+.theme-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7}
+.theme-btn .moon{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-btn .sun{display:none}
+  :root:not([data-theme="light"]) .theme-btn .moon{display:block}
+}
+:root[data-theme="dark"] .theme-btn .sun{display:none}
+:root[data-theme="dark"] .theme-btn .moon{display:block}
+:root[data-theme="light"] .theme-btn .sun{display:block}
+:root[data-theme="light"] .theme-btn .moon{display:none}
+
+/* ---------------------------------------------------- type */
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--copper);margin:0 0 16px;
+}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,6.4vw,74px);line-height:1.03;letter-spacing:-.027em;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(25px,3.4vw,38px);line-height:1.12;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:clamp(19px,2.1vw,24px);line-height:1.2;letter-spacing:-.012em;margin:0;text-wrap:balance}
+.lede{font-size:clamp(17px,1.85vw,20.5px);line-height:1.52;color:var(--muted);max-width:58ch}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+.plain{color:var(--text)}
+
+/* ---------------------------------------------------- hero */
+.hero{padding-block:clamp(40px,6vw,84px) clamp(28px,4vw,52px);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(26px,4.5vw,64px);align-items:center;position:relative;z-index:1}
+.hero h1{margin-bottom:20px}
+.hero .lede{margin-bottom:26px}
+.portrait{width:clamp(150px,18vw,215px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:11px 14px;align-items:center}
+
+/* A sensor trace across the top of the page, drawn once on load. It is
+   decoration, but it is decoration made of the thing the site is about. */
+.trace{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:var(--trace-op);
+}
+.trace path{
+  fill:none;stroke-width:1.5;
+  stroke-dasharray:2600;stroke-dashoffset:2600;
+  animation:draw 3.2s var(--ease) .3s forwards;
+}
+.trace .a{stroke:var(--copper)}
+.trace .b{stroke:var(--ice);opacity:.75;animation-delay:.8s}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--body);font-size:15px;font-weight:500;
+  padding:11px 21px;border-radius:999px;text-decoration:none;
+  border:1px solid var(--copper);background:var(--copper);color:#fff;
+  transition:transform .3s var(--ease),box-shadow .3s ease,background-color .2s ease;
+}
+:root[data-theme="dark"] .btn:not(.btn-ghost){color:#17110c}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .btn:not(.btn-ghost){color:#17110c}
+}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--copper);color:var(--copper)}
+
+/* ---------------------------------------------------- sections */
+section{padding-block:clamp(36px,4.8vw,68px)}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+.sec-head{margin-bottom:clamp(24px,3vw,40px);max-width:62ch}
+.sec-head h2{margin-bottom:12px}
+.sec-head p{color:var(--muted);font-size:16.5px;max-width:58ch}
+
+/* the "what I'm looking for" strip: the first thing a recruiter needs */
+.seeking{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(18px,2.4vw,32px)}
+.seeking div{border-top:2px solid var(--copper);padding-top:14px}
+.seeking dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.seeking dd{margin:0;font-size:16px;line-height:1.45;color:var(--text);font-weight:500}
+.seeking dd small{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:3px}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(22px,3vw,40px)}
+.col h3{font-size:18.5px;margin-bottom:9px}
+.col p{color:var(--muted);font-size:15.5px}
+.col .num{font-family:var(--mono);font-size:11.5px;color:var(--copper);letter-spacing:.1em;display:block;margin-bottom:11px}
+
+/* Four real figures, counted up when they scroll into view. The numbers are
+   written into the HTML, so they are correct even with the script switched off. */
+.tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(20px,3vw,40px)}
+.tally div{border-top:1px solid var(--line);padding-top:16px}
+.tally b{
+  display:block;font-family:var(--display);font-weight:700;
+  font-size:clamp(34px,4.6vw,54px);line-height:1;letter-spacing:-.03em;color:var(--copper);
+  font-variant-numeric:lining-nums tabular-nums;
+}
+/* Direct child only. Without the `> div >` the number's own inner span was
+   picking this up and being knocked back down to 14.8px. */
+.tally > div > span{display:block;margin-top:9px;color:var(--muted);font-size:14.8px;line-height:1.4}
+.tally b span{font:inherit;color:inherit}
+
+/* ---------------------------------------------------- work cards */
+.work-grid{display:grid;gap:clamp(20px,2.6vw,30px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:13px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s ease,border-color .3s ease}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--copper)}
+.card-media{aspect-ratio:16/10;overflow:hidden;background:var(--surface-2)}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.card:hover .card-media img{transform:scale(1.06)}
+.card-body{padding:20px 22px 24px}
+.card h3{font-size:19.5px;margin-bottom:7px}
+.card p{color:var(--muted);font-size:14.8px;margin:0}
+.card .org{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin-bottom:10px}
+
+/* ---------------------------------------------------- work page groups */
+.group{padding-block:clamp(30px,3.6vw,50px) 0}
+.group-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:16px;border-bottom:2px solid var(--copper);margin-bottom:6px}
+.group-head h2{font-size:clamp(21px,2.6vw,29px)}
+.group-head span{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+
+/* jump index */
+.jump{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.jump a{
+  display:inline-block;font-family:var(--mono);font-size:12px;text-decoration:none;
+  color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 13px;
+  transition:color .25s ease,border-color .25s ease,background-color .25s ease;
+}
+.jump a:hover{color:var(--copper);border-color:var(--copper);background:var(--copper-soft)}
+/* the project currently on screen */
+.jump a.here{color:var(--copper);border-color:var(--copper);background:var(--copper-soft)}
+
+/* ---------------------------------------------------- project detail */
+.project{padding-block:clamp(28px,3.4vw,46px)}
+.project + .project{border-top:1px solid var(--line)}
+.p-top{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:10px}
+.p-top .eyebrow{margin:0}
+.p-top .tags{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em}
+.project h2{font-size:clamp(22px,2.8vw,32px);margin-bottom:10px}
+
+/* the one line a recruiter actually reads */
+.result{
+  display:flex;gap:11px;align-items:flex-start;
+  font-size:clamp(16px,1.75vw,18.5px);line-height:1.42;font-weight:500;
+  color:var(--text);margin:0 0 18px;max-width:62ch;
+}
+.result::before{
+  content:"";flex:none;width:3px;align-self:stretch;min-height:1.4em;
+  background:var(--copper);border-radius:2px;
+}
+
+.p-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(20px,3vw,44px);align-items:start}
+.p-body.no-video{grid-template-columns:minmax(0,1fr)}
+.p-body.no-video .p-text{max-width:68ch}
+.p-text p{color:var(--muted);font-size:15.8px}
+
+/* The plain sentence comes first and the technical one second, so a recruiter
+   and an engineer can both read the same paragraph and stop where they like. */
+.tech{
+  font-size:14.6px;color:var(--faint);border-left:2px solid var(--line);
+  padding-left:14px;margin-top:14px;
+}
+.tech b{color:var(--muted);font-weight:600}
+
+.stack{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:16px 0 0;padding:0}
+.stack li{
+  font-family:var(--mono);font-size:11px;letter-spacing:.01em;
+  color:var(--text);background:var(--surface-2);
+  padding:5px 10px;border-radius:5px;border:1px solid var(--line);
+}
+
+.player{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#000;box-shadow:var(--shadow)}
+.player video{width:100%;height:auto;display:block;background:#000}
+.player.portrait{display:flex;justify-content:center}
+.player.portrait video{max-height:66vh;width:auto}
+.p-caption{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px;letter-spacing:.02em}
+.still{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--surface-2)}
+.still img{width:100%;display:block}
+
+/* The dashboard clip, given the width it deserves. */
+.showreel{margin-top:clamp(22px,3vw,38px)}
+.showreel .player{box-shadow:var(--shadow-lg)}
+
+/* Numbered layer list for the thesis: the structure is the point, so the
+   numbering encodes a real pipeline order rather than decorating a list. */
+.spec-panel{
+  margin:0;border:1px solid var(--line);border-radius:11px;
+  background:var(--surface);overflow:hidden;
+}
+.spec-panel > div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:14px;padding:13px 18px}
+.spec-panel > div + div{border-top:1px solid var(--line)}
+.spec-panel dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--copper);padding-top:2px}
+.spec-panel dd{margin:0;font-size:14.8px;line-height:1.45;color:var(--muted)}
+
+/* ---------------------------------------------------- timeline */
+.timeline{display:grid;gap:0}
+.tl-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(16px,2.8vw,40px);padding-block:clamp(20px,2.4vw,28px)}
+.tl-row + .tl-row{border-top:1px solid var(--line)}
+.tl-when{font-size:13.5px;color:var(--muted);line-height:1.6;font-variant-numeric:lining-nums}
+.tl-when b{display:block;color:var(--copper);font-weight:600;font-size:14px}
+.tl-body h3{font-size:20px;margin-bottom:3px}
+.tl-org{color:var(--ice);font-size:15px;margin:0 0 10px;font-weight:500}
+.tl-body ul{margin:0;padding-left:18px;color:var(--muted)}
+.tl-body li{margin-bottom:6px}
+.tl-body li::marker{color:var(--copper)}
+
+/* ---------------------------------------------------- fact blocks */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(22px,2.8vw,38px)}
+.fact h3{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+.fact ul{list-style:none;margin:0;padding:0}
+.fact li{margin-bottom:12px;color:var(--muted);font-size:14.8px;line-height:1.48}
+.fact li b{display:block;color:var(--text);font-weight:600}
+/* Dates and grades live here, so this is body face and not mono. */
+.fact li i{font-style:normal;font-size:13.5px;color:var(--faint);display:block;margin-top:2px;font-variant-numeric:lining-nums}
+
+/* ---------------------------------------------------- end-of-page flow */
+.cta-band{border-top:1px solid var(--line);background:var(--surface);}
+.cta-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding-block:clamp(30px,4vw,52px);
+}
+.cta-inner h2{font-size:clamp(21px,2.6vw,30px);max-width:22ch}
+.cta-inner p{color:var(--muted);margin:8px 0 0;max-width:46ch;font-size:15.5px}
+
+/* ---------------------------------------------------- footer */
+.site-foot{border-top:1px solid var(--line);padding-block:clamp(36px,4.6vw,64px)}
+.foot-grid{display:flex;flex-wrap:wrap;gap:26px 44px;justify-content:space-between;align-items:flex-end}
+.foot-mail{font-family:var(--display);font-weight:600;font-size:clamp(22px,3.2vw,36px);letter-spacing:-.022em;text-decoration:none;color:var(--text);transition:color .25s ease}
+.foot-mail:hover{color:var(--copper)}
+
+/* Contact details in the body face, not the mono face. A phone number set in
+   a monospace with a slashed zero, at 12px, is genuinely hard to read, and
+   this is the one number on the site somebody may have to copy by hand. */
+.foot-meta{font-size:14.5px;color:var(--muted);line-height:1.85;text-align:right}
+.foot-meta a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.foot-meta a:hover{color:var(--copper);border-color:var(--copper)}
+.foot-phone{
+  font-variant-numeric:lining-nums tabular-nums;
+  letter-spacing:.02em;color:var(--text);font-weight:500;
+  text-decoration:none;border-bottom:1px solid var(--line);
+}
+.foot-phone:hover{color:var(--copper);border-color:var(--copper)}
+
+/* ---------------------------------------------------- motion
+   Four entrances, not one. A page where every element arrives the same way
+   reads as generated, however smooth each individual movement is. */
+[data-anim]{transition-property:opacity,transform,clip-path;transition-duration:.7s;transition-timing-function:var(--ease)}
+html:not(.js) [data-anim]{opacity:1!important;transform:none!important;clip-path:none!important}
+
+[data-anim="rise"]{opacity:0;transform:translateY(18px)}
+[data-anim="wipe"]{opacity:0;clip-path:inset(14% 0 0 0);transform:translateY(10px)}
+[data-anim="scale"]{opacity:0;transform:scale(.965) translateY(10px)}
+[data-anim="seq"] > *{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+
+[data-anim].in{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+[data-anim="seq"].in > *{opacity:1;transform:none}
+
+/* The hero runs on a timer rather than on scroll, because it is already
+   on screen when the page opens. */
+.hero .stagger{opacity:0;transform:translateY(15px);animation:rise .85s var(--ease) forwards}
+html:not(.js) .hero .stagger{opacity:1;transform:none;animation:none}
+.hero .stagger:nth-child(1){animation-delay:.05s}
+.hero .stagger:nth-child(2){animation-delay:.15s}
+.hero .stagger:nth-child(3){animation-delay:.25s}
+.hero .stagger:nth-child(4){animation-delay:.35s}
+.hero .stagger:nth-child(5){animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  [data-anim],[data-anim] > *{opacity:1!important;transform:none!important;clip-path:none!important}
+  .trace{display:none}
+}
+
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:3px}
+
+/* ---------------------------------------------------- responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-portrait{order:-1}
+  .p-body{grid-template-columns:minmax(0,1fr)}
+  .tl-row{grid-template-columns:minmax(0,1fr);gap:7px}
+  .foot-meta{text-align:left}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){
+  .nav-links{gap:11px}
+  .nav-links a{font-size:13.5px}
+  .brand{font-size:13.5px}
+  .trace{height:80px}
+}
